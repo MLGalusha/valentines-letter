@@ -1,0 +1,114 @@
+body {
+  background-color: #e6e6fa;
+}
+
+
+.contain-main-page {
+  position: relative;
+  height: 100vh;
+  width: 98.88vw;
+}
+.contain-envelope {
+  position: relative;
+  top: 9rem;
+  left: 34rem;
+  height: 36rem;
+  width: 38rem;
+  overflow: hidden;
+  animation: bounce 1s ease-in-out infinite;
+  transition: animation-duration 0.5s ease-in-out;
+  /* border: 1px solid black; */
+}
+
+.envelope {
+  position: relative;
+  top: 5.75rem;
+  left: -6rem;
+  height: 45rem;
+  width: 50rem;
+  overflow: visible;
+}
+
+/* Closed Envelope */
+.envelope-closed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("./assets/unopened-envelope.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 0.4s ease-in-out;
+  z-index: 4;
+}
+
+/* Opened Envelope (Initially Hidden) */
+.envelope-opened-top {
+  position: absolute;
+  top: 0rem;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("./assets/opened-envelope-top.svg");
+  background-size: contain;
+  background-position: 2.5rem 0rem;
+  background-repeat: no-repeat;
+  opacity: 0; /* Start fully transparent */
+  transition: opacity 0.4s ease-in-out;
+  z-index: 2;
+}
+
+/* Opened Envelope (Initially Hidden) */
+.envelope-opened {
+  position: absolute;
+  top: -10rem;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("./assets/opened-envelope.svg");
+  background-size: contain;
+  background-position: 2.5rem 0rem;
+  background-repeat: no-repeat;
+  opacity: 0; /* Start fully transparent */
+  transition: opacity 0.4s ease-in-out;
+  z-index: 1;
+}
+
+.envelope-letter {
+  position: absolute;
+  background-color: white;
+  top: 3.5rem;
+  left: 8.4rem;
+  height: 21rem;
+  width: 33rem;
+  opacity: 0;
+  border-radius: 5px;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 2;
+}
+
+
+/* On Hover: Hide Closed Envelope & Show Opened One */
+.contain-envelope:hover .envelope-closed {
+  opacity: 0;
+}
+
+.contain-envelope:hover .envelope-opened, .envelope-opened-top {
+  opacity: 1;
+}
+
+.contain-envelope:hover .envelope-letter {
+  opacity: 1;
+  animation: openLetter 0.5s ease-in-out;
+}
+
+@keyframes openLetter {
+  0% {
+    transform: translateY(10rem);
+  }
+  100% {
+    transform: translateY(0rem);
+  }
+}
