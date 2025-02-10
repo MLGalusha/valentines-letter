@@ -15,8 +15,6 @@ body {
   height: 36rem;
   width: 38rem;
   overflow: hidden;
-  animation: bounce 1s ease-in-out infinite;
-  transition: animation-duration 0.5s ease-in-out;
   /* border: 1px solid black; */
 }
 
@@ -84,7 +82,7 @@ body {
   height: 21rem;
   width: 33rem;
   opacity: 0;
-  border-radius: 5px;
+  border-radius: 10px;
   transition: opacity 0.5s ease-in-out;
   z-index: 2;
 }
@@ -101,7 +99,8 @@ body {
 
 .contain-envelope:hover .envelope-letter {
   opacity: 1;
-  animation: openLetter 0.5s ease-in-out;
+  animation: openLetter 1s ease-in-out,
+  heartbeatGrow 2s ease-in-out 1s infinite;
 }
 
 @keyframes openLetter {
@@ -110,5 +109,24 @@ body {
   }
   100% {
     transform: translateY(0rem);
+  }
+}
+
+@keyframes heartbeatGrow {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.02); /* First beat up */
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.02); /* Second beat up */
+  }
+  70% {
+    transform: scale(1);
   }
 }
