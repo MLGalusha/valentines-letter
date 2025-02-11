@@ -1,12 +1,15 @@
 body {
-  background-color: #e6e6fa;
+  background-color: #BEA6C5;
+  color:blueviolet;
 }
 
 
 .contain-main-page {
   position: relative;
+  top: 0;
+  left: 0;
   height: 100vh;
-  width: 98.88vw;
+  width: 100vw;
 }
 .contain-envelope {
   position: relative;
@@ -74,20 +77,6 @@ body {
   z-index: 1;
 }
 
-.envelope-letter {
-  position: absolute;
-  background-color: white;
-  top: 3.5rem;
-  left: 8.4rem;
-  height: 21rem;
-  width: 33rem;
-  opacity: 0;
-  border-radius: 10px;
-  transition: opacity 0.5s ease-in-out;
-  z-index: 2;
-}
-
-
 /* On Hover: Hide Closed Envelope & Show Opened One */
 .contain-envelope:hover .envelope-closed {
   opacity: 0;
@@ -97,36 +86,35 @@ body {
   opacity: 1;
 }
 
-.contain-envelope:hover .envelope-letter {
-  opacity: 1;
-  animation: openLetter 1s ease-in-out,
+.contain-envelope:hover .overflow.in-envelope {
+  animation: openLetter 1s ease-in-out forwards,
   heartbeatGrow 2s ease-in-out 1s infinite;
-}
-
-@keyframes openLetter {
-  0% {
-    transform: translateY(10rem);
-  }
-  100% {
-    transform: translateY(0rem);
-  }
 }
 
 @keyframes heartbeatGrow {
   0%,
   100% {
-    transform: scale(1);
+    transform: scale(0.58) translateY(-7rem);
   }
   14% {
-    transform: scale(1.02); /* First beat up */
+    transform: scale(0.60) translateY(-7rem); /* First beat up */
   }
   28% {
-    transform: scale(1);
+    transform: scale(0.58) translateY(-7rem);
   }
   42% {
-    transform: scale(1.02); /* Second beat up */
+    transform: scale(0.60) translateY(-7rem);  /* Second beat up */
   }
   70% {
-    transform: scale(1);
+    transform: scale(0.58) translateY(-7rem);
+  }
+}
+
+@keyframes openLetter {
+  0% {
+    transform: translateY(0rem) scale(0.58);
+  }
+  100% {
+    transform: translateY(-4rem) scale(0.58);
   }
 }
