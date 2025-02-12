@@ -1,6 +1,19 @@
-body {
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
   background-color: #BEA6C5;
   color:blueviolet;
+}
+
+input, textarea, select {
+  background-color: #BEA6C5;
+  color: black; /* Sets the text inside the input to black */
+  border: 1px solid #ccc; /* Optional: Adds a subtle border */
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none; /* Removes blue highlight on focus */
 }
 
 
@@ -8,7 +21,7 @@ body {
   position: relative;
   top: 0;
   left: 0;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
 }
 .contain-envelope {
@@ -17,8 +30,18 @@ body {
   left: 34rem;
   height: 36rem;
   width: 38rem;
-  overflow: hidden;
+
   /* border: 1px solid black; */
+}
+
+.env-shadow {
+  position: absolute;
+  top: 14.2rem;
+  left: 1.1rem;
+  height: 21.6rem;
+  width: 35.7rem;
+  z-index: 1;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .envelope {
@@ -48,7 +71,7 @@ body {
 /* Opened Envelope (Initially Hidden) */
 .envelope-opened-top {
   position: absolute;
-  top: 0rem;
+  top: -4rem;
   left: 0;
   height: 100%;
   width: 100%;
@@ -77,6 +100,8 @@ body {
   z-index: 1;
 }
 
+
+
 /* On Hover: Hide Closed Envelope & Show Opened One */
 .contain-envelope:hover .envelope-closed {
   opacity: 0;
@@ -94,27 +119,30 @@ body {
 @keyframes heartbeatGrow {
   0%,
   100% {
-    transform: scale(0.58) translateY(-7rem);
+    transform: scale(1  translateY(-5rem));
   }
   14% {
-    transform: scale(0.60) translateY(-7rem); /* First beat up */
+    transform: scale(1.02  translateY(-5rem));
   }
   28% {
-    transform: scale(0.58) translateY(-7rem);
+    transform: scale(1)  translateY(-5rem); /* First beat up */
   }
   42% {
-    transform: scale(0.60) translateY(-7rem);  /* Second beat up */
+    transform: scale(1.02)  translateY(-5rem);
   }
-  70% {
-    transform: scale(0.58) translateY(-7rem);
+  56% {
+    transform: scale(1)  translateY(-5rem);  /* Second beat up */
+  }
+  84% {
+    transform: scale(1.02)  translateY(-5rem);
   }
 }
 
 @keyframes openLetter {
   0% {
-    transform: translateY(0rem) scale(0.58);
+    transform: translateY(0rem);
   }
   100% {
-    transform: translateY(-4rem) scale(0.58);
+    transform: translateY(-5rem);
   }
 }
