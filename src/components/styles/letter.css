@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Metal+Mania&display=swap');
+
+/* ----------------------- */
+/* General Card and Layout */
+/* ----------------------- */
+
+.letter-header {
+    position: relative;
+    height: 10rem;
+    width: 10rem;
+    background-image: url("../../assets/the-question.svg");
+    background-position: contain;
+    background-repeat: no-repeat;
+    background-size: 40rem 40rem;
+    top: 50%;
+    left: 50%;
+    color: black;
+}
+
+.the-question {
+    position: relative;
+    height: 7rem;
+    width: 18rem;
+    top: 1rem;
+    left: 7rem;
+    color: black;
+    background-image: url("../../assets/the-question.svg");
+    background-position: -3rem -5.5rem;
+    background-repeat: no-repeat;
+    background-size: 25rem 25rem;
+    /* border: 1px solid black; */
+}
+
+.overflow.fullscreen {
+    top: 17rem;
+    left: 39em;
+    transform: scale(1.5);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.overflow {
+    position: relative;
+    top: 8.8rem;
+    left: 8rem;
+    height: 20.1rem;
+    width: 34rem;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.text {
+    position: relative;
+    top: 50%;
+    left: 0rem;
+}
+
+/* ----------------------- */
+/* Card (Letter) Styles    */
+/* ----------------------- */
+
+.letter-opened {
+    border-radius: 10px;
+    position: relative;
+    background-image: url("../../assets/new-paper.svg");
+    background-position: -9rem -22.5rem;
+    background-repeat: no-repeat;
+    background-size: 80rem 80rem;
+    top: 0rem;
+    left: 0rem;
+    height: 20.1rem;
+    width: 34rem;
+    z-index: 2;
+    transition: transform 1s ease-in-out;
+    animation: heartBeatGrowFull 2s ease-in-out 1s infinite;
+    overflow: hidden; /* Ensures that content does not spill outside the card */
+}
+
+/* ----------------------- */
+/* Button Container        */
+/* ----------------------- */
+
+/* Position the container at the bottom center of the card */
+.button-container {
+    position: absolute;
+    bottom: 10px;             /* Adjust vertical placement as needed */
+    left: 46%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 20px;                /* Space between the buttons */
+    box-sizing: border-box;
+  }
+
+  /* ----------------------- */
+  /* Yes Button Styling      */
+  /* ----------------------- */
+
+  /* The Yes button is set to flex-grow (expand) to fill available space */
+  .yes-button {
+    background-color: rgba(3, 93, 3, 0.2);
+    font-size: var(--yes-button-font-size, 16px);
+    font-family: "Bona Nova SC", serif;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #7c0000;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+    flex: 1;                   /* This allows the Yes button to expand */
+    box-sizing: border-box;
+  }
+
+
+  .yes-button:hover {
+    background-color: rgba(3, 93, 3, 0.4);
+  }
+
+  /* ----------------------- */
+  /* No Button Styling       */
+  /* ----------------------- */
+
+  /* The No button does not grow—it stays at its intrinsic (or fixed) size */
+  .no-button {
+    background-color: rgba(107, 1, 1, 0.2);
+    font-size: clamp(10px, 2vw, 14px);
+    font-family: "Metal Mania", serif;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #7c0000;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    /* No flex-grow; it only occupies as much space as its content (or a set max) */
+    flex: 0 0 auto;
+    /* Optionally set a maximum width to ensure it never over-expands */
+    max-width: 200px;
+    box-sizing: border-box;
+  }
+
+  .no-button:hover {
+    background-color: rgba(107, 1, 1, 0.4);
+  }
+
+  .extra-text {
+    position: absolute;
+    font-family: "Metal Mania", serif;
+    color: #7c0000;
+    font-size: 1rem;
+    font-weight: 900;
+    top: 8.9rem;
+    left: 2rem;
+    height: 4rem;
+    width: 30rem;
+    text-align: center;
+  }
