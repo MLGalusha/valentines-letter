@@ -1,0 +1,139 @@
+/* NoPage.css */
+.no-page-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background-color: #f9f9f9;
+    border: 2px dashed #ff69b4;
+    border-radius: 10px;
+    position: relative; /* Ensure child absolute elements position relative to this */
+  }
+
+  /* Change from fixed to absolute so the side messages scroll with the container */
+  .side-messages {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 10;
+  }
+
+  /* Adjust these offsets as needed so the messages appear in the unused space outside your form */
+  .left-side {
+    left: -17vw;  /* Negative offset to position the left messages outside the container */
+  }
+
+  .right-side {
+    right: -17vw; /* Negative offset to position the right messages outside the container */
+  }
+
+  .side-message {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    animation: floatAnimation 4s ease-in-out infinite;
+  }
+
+  @keyframes floatAnimation {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .yes-button-side {
+    margin-top: 5px;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: background-color 0.3s;
+  }
+
+  .yes-button-side:hover {
+    background-color: #ff1493;
+  }
+
+  /* Existing form button styles */
+  .submit-button,
+  .proceed-button {
+    background-color: #ff69b4;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+  .submit-button:hover,
+  .proceed-button:hover {
+    background-color: #ff1493;
+  }
+
+  .no-page-container h1 {
+    text-align: center;
+    color: #ff1493;
+  }
+
+  .no-page-container h2 {
+    text-align: center;
+    color: #d2691e;
+  }
+
+  .no-page-container p {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .no-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  fieldset {
+    border: 2px solid #ff69b4;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  legend {
+    font-weight: bold;
+    color: #ff1493;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="month"],
+  textarea,
+  select {
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+
