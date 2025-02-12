@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./styles/NoPage.css";
 
 interface NoPageProps {
+  onSetCurrentPage: (newPage: string) => void;
   onSubmit: () => void; // Called when the form is completed and the "No" option is unlocked
 }
 
@@ -47,7 +48,7 @@ interface FormData {
   futureParticipation: string;
 }
 
-const NoPage: React.FC<NoPageProps> = ({ onSubmit }) => {
+const NoPage: React.FC<NoPageProps> = ({ onSubmit, onSetCurrentPage }) => {
   const [formData, setFormData] = useState<FormData>({
     // Initialize your form fields here (using empty strings or default values)
     firstName: "",
@@ -134,8 +135,7 @@ const NoPage: React.FC<NoPageProps> = ({ onSubmit }) => {
 
   // Handler for side YES buttons
   const handleSideYesClick = () => {
-    alert("You selected YES! Great decision!");
-    // Alternatively, navigate to a "yes" page or update app state
+    onSetCurrentPage("yes");
   };
 
   const handleChange = (
@@ -437,7 +437,7 @@ const NoPage: React.FC<NoPageProps> = ({ onSubmit }) => {
             </select>
           </label>
           <label>
-            How seriously do you take romance?
+            How seriously do you take our romance?
             <select
               name="romanceSeriousness"
               value={formData.romanceSeriousness}
@@ -451,7 +451,7 @@ const NoPage: React.FC<NoPageProps> = ({ onSubmit }) => {
             </select>
           </label>
           <label>
-            How would you rate your appreciation for cheesy pickup lines?
+            How would you rate your appreciation for this valentines proposal?
             <select
               name="cheesyPickupLines"
               value={formData.cheesyPickupLines}
@@ -465,7 +465,7 @@ const NoPage: React.FC<NoPageProps> = ({ onSubmit }) => {
             </select>
           </label>
           <label>
-            How much do you enjoy surprise gestures?
+            How much do you enjoy surprises?
             <select
               name="surpriseGestures"
               value={formData.surpriseGestures}
@@ -525,17 +525,20 @@ const NoPage: React.FC<NoPageProps> = ({ onSubmit }) => {
             />
           </label>
           <label>
-            How many proposals have you received in the past year?
-            <input
-              type="number"
-              name="proposalsLastYear"
-              value={formData.proposalsLastYear}
+            So you're telling me I {formData.reconsideration} you'd reconsider
+            your decision?
+            <select
+              name="absurdFormHumor"
+              value={formData.absurdFormHumor}
               onChange={handleChange}
-              required
-            />
+            >
+              <option value="1">Yes</option>
+              <option value="2">No</option>
+              <option value="3">Maybe</option>
+            </select>
           </label>
           <label>
-            How often do you appreciate absurd proposals like this?
+            How often do you appreciate absurd forms like this?
             <select
               name="absurdFormHumor"
               value={formData.absurdFormHumor}
@@ -619,7 +622,7 @@ const NoPage: React.FC<NoPageProps> = ({ onSubmit }) => {
             />
           </label>
           <label>
-            How often do you change your mind about relationships?
+            How often do you change your mind about our relationship?
             <select
               name="mindChangeFrequency"
               value={formData.mindChangeFrequency}
@@ -636,7 +639,7 @@ const NoPage: React.FC<NoPageProps> = ({ onSubmit }) => {
           </label>
           <label>
             On a scale of 1 (extreme pain) to 5 (no pain), how painful is the
-            idea of commitment for you?
+            idea of commitment with me for you?
             <select
               name="commitmentPain"
               value={formData.commitmentPain}
