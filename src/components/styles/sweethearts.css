@@ -10,11 +10,6 @@
     overflow: hidden;
   }
 
-  /* Each heart will animate using the custom keyframes defined below */
-  .sweetheart {
-    /* Additional styles can be added here if needed */
-  }
-
   @keyframes moveHeart {
     0% {
       transform: translate(0, 0);
