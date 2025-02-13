@@ -111,6 +111,10 @@
     box-sizing: border-box;
   }
 
+  .yes-button:focus,
+  .no-button:focus {
+    outline: none;
+  }
 
   .yes-button:hover {
     background-color: rgba(3, 93, 3, 0.4);
@@ -140,6 +144,7 @@
 
   .no-button:hover {
     background-color: rgba(107, 1, 1, 0.4);
+    border: none;
   }
 
   .extra-text {
