@@ -3,6 +3,8 @@ import "./App.css";
 import Letter from "./components/Letter";
 import NoPage from "./components/NoPage";
 import SweetheartsBackground from "./components/SweetheartsBackground";
+import YesPage from "./components/YesPage";
+import FinalNoPage from "./components/FinalNoPage";
 
 function App() {
   const [currentPage, setCurrentPage] = useState<string>("start");
@@ -13,7 +15,7 @@ function App() {
 
   return (
     <div className="contain-main-page">
-      <SweetheartsBackground />
+      <SweetheartsBackground currentPage={currentPage} />
       {currentPage === "start" ? (
         <div className="contain-envelope" onClick={() => updatePage("letter")}>
           <div className="env-shadow" />
@@ -33,20 +35,18 @@ function App() {
         </div>
       ) : currentPage === "no" ? (
         <div>
-          <NoPage onSubmit={() => setCurrentPage("final-no-page")} />
+          <NoPage
+            onSetCurrentPage={updatePage}
+            onSubmit={() => setCurrentPage("final-no-page")}
+          />
         </div>
       ) : currentPage === "final-no-page" ? (
         <div>
-          <h1>
-            Wow what a loser you just wasted your time on that dumbass form!
-          </h1>
+          <FinalNoPage onSetCurrentPage={updatePage} />
         </div>
       ) : (
         <div>
-          <h3 onClick={() => updatePage("letter")}>
-            You didn't mean to select yes?
-          </h3>
-          <h1>YESSSSSSSSS!!!!</h1>
+          <YesPage onSetCurrentPage={updatePage} />
         </div>
       )}
     </div>
