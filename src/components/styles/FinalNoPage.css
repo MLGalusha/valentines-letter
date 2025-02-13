@@ -1,0 +1,50 @@
+.final-no-page-container {
+    position: relative;
+    top: 10rem;
+    background-color: black;
+    margin: 4rem auto;
+    width: 50rem;
+    height: 30rem;
+    background: #242424;
+    color: #ff3333;
+    border-radius: 1rem;
+    border: 5px dashed #ff3333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .final-no-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .final-no-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .final-no-gif {
+    width: 200px;
+    height: auto;
+    margin-bottom: 2rem;
+  }
+
+  .final-no-message {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ccc;
+  }
+
+  .final-restart-button {
+    background-color: #ff3333;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+  }
