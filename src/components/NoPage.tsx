@@ -48,7 +48,7 @@ interface FormData {
   futureParticipation: string;
 }
 
-const NoPage: React.FC<NoPageProps> = ({ onSubmit, onSetCurrentPage }) => {
+const NoPage: React.FC<NoPageProps> = ({ onSetCurrentPage }) => {
   const [formData, setFormData] = useState<FormData>({
     // Initialize your form fields here (using empty strings or default values)
     firstName: "",
@@ -87,8 +87,6 @@ const NoPage: React.FC<NoPageProps> = ({ onSubmit, onSetCurrentPage }) => {
     commitmentPain: "3",
     futureParticipation: "3",
   });
-
-  const [submitted, setSubmitted] = useState(false);
 
   // Arrays for side messages
   const leftMessages = [
@@ -152,24 +150,8 @@ const NoPage: React.FC<NoPageProps> = ({ onSubmit, onSetCurrentPage }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
+    onSetCurrentPage("final-no-page");
   };
-
-  if (submitted) {
-    return (
-      <div className="no-page-container">
-        <h2>Form Submitted Successfully!</h2>
-        <p>
-          Thank you for your detailed responses. The "No" option is now
-          unlocked.
-        </p>
-        <button onClick={onSubmit} className="proceed-button">
-          Proceed with "No"
-        </button>
-      </div>
-    );
-  }
 
   return (
     <div className="no-page-container">
