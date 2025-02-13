@@ -1,114 +1,72 @@
 import React from "react";
-import "./styles/SweetheartsBackground.css";
+import SweetheartSVG from "./SweetheartSVG";
+import "./styles/sweethearts.css";
 
-interface Sweetheart {
-  id: number;
-  phrase: string;
-  color: string;
-  left: number; // percentage (0-90)
-  top: number; // percentage (0-90)
-  moveX: string; // e.g., "200px" or "-150px"
-  moveY: string; // e.g., "100px" or "-80px"
-  duration: number; // seconds
-  delay: number; // seconds
+interface SweetheartsBackgroundProps {
+  currentPage: string;
 }
-
-const phrases = [
-  "BE MINE.",
-  "BESTIE.",
-  "CUTIE PIE.",
-  "UR MINE",
-  "ALL MINE",
-  "I ♥ U",
-  "ME + YOU",
-  "ONLY YOU",
-  "QT PIE",
-  "SO SWEET",
-  "UR SWEET",
-  "Kiss Me",
-  "Call Me",
-  "Hug Me",
-  "Love You",
-  "XOXO",
-  "You Rock",
-  "BFF",
-  "Marry Me",
-  "Text Me",
-  "ILY",
-  "Miss You",
-  "True Love",
-  "Forever",
-  "I <3 U",
-  "LOL",
-  "ILYSM",
-  "U R Hot",
-  "My Baby",
-  "OMG",
-  "4EVER",
-];
-
-const colors = [
-  "#FFC0CB",
-  "#90EE90",
-  "#D8BFD8",
-  "#FFFFE0",
-  "#FFA500",
-  "#FFFFFF",
-  "#A52A2A",
-];
 
 function randomBetween(min: number, max: number): number {
   return Math.random() * (max - min) + min;
 }
 
+interface HeartPosition {
+  id: number;
+  left: number;
+  top: number;
+  moveX: string;
+  moveY: string;
+  duration: number;
+  delay: number;
+}
+
 const NUM_SWEETHEARTS = 20;
 
-const SweetheartsBackground: React.FC = () => {
-  const sweethearts: Sweetheart[] = Array.from(
+const SweetheartsBackground: React.FC<SweetheartsBackgroundProps> = ({
+  currentPage,
+}) => {
+  // Render the hearts only if we're on the "start" or "letter" page.
+  if (
+    currentPage !== "start" &&
+    currentPage !== "letter" &&
+    currentPage !== "yes"
+  ) {
+    return null;
+  }
+
+  // Generate random positions and animation parameters for each heart.
+  const hearts: HeartPosition[] = Array.from(
     { length: NUM_SWEETHEARTS },
     (_, index) => {
-      const phrase = phrases[Math.floor(Math.random() * phrases.length)];
-      const color = colors[Math.floor(Math.random() * colors.length)];
-      const left = randomBetween(0, 90); // keep within container
+      const left = randomBetween(0, 90);
       const top = randomBetween(0, 90);
-      const moveX = `${Math.floor(randomBetween(-200, 200))}px`;
-      const moveY = `${Math.floor(randomBetween(-200, 200))}px`;
+      const moveX = `${Math.floor(randomBetween(-400, 400))}px`;
+      const moveY = `${Math.floor(randomBetween(-400, 400))}px`;
       const duration = randomBetween(10, 20);
       const delay = randomBetween(0, 5);
-      return {
-        id: index,
-        phrase,
-        color,
-        left,
-        top,
-        moveX,
-        moveY,
-        duration,
-        delay,
-      };
+      return { id: index, left, top, moveX, moveY, duration, delay };
     }
   );
 
   return (
     <div className="sweethearts-background">
-      {sweethearts.map((s) => (
+      {hearts.map((heart) => (
         <div
-          key={s.id}
+          key={heart.id}
           className="sweetheart"
           style={
             {
-              backgroundColor: s.color,
-              left: `${s.left}%`,
-              top: `${s.top}%`,
-              animationDuration: `${s.duration}s`,
-              animationDelay: `${s.delay}s`,
-              // Set custom CSS variables for movement:
-              "--moveX": s.moveX,
-              "--moveY": s.moveY,
+              position: "absolute",
+              left: `${heart.left}%`,
+              top: `${heart.top}%`,
+              animation: `moveHeart ${heart.duration}s linear ${heart.delay}s infinite`,
+              // Pass custom CSS variables for the movement animation
+              "--moveX": heart.moveX,
+              "--moveY": heart.moveY,
             } as React.CSSProperties
           }
         >
-          <span className="sweetheart-text">{s.phrase}</span>
+          <SweetheartSVG width={120} height={120} />
         </div>
       ))}
     </div>

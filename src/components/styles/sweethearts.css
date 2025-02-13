@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
+
+.sweethearts-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* So the background doesn’t block interactions */
+    overflow: hidden;
+  }
+
+  /* Each heart will animate using the custom keyframes defined below */
+  .sweetheart {
+    /* Additional styles can be added here if needed */
+  }
+
+  @keyframes moveHeart {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(var(--moveX), var(--moveY));
+    }
+  }
+
+.sweetheart-font {
+  font-size: 1rem;
+  font-family: "Coiny", serif;
+  max-width: 2rem;
+}
