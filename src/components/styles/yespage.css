@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Italianno&display=swap');
+
+.yes-page-container {
+    position: relative;
+    height: 30rem;
+    width: 70rem;
+    top: 15rem;
+    left: 20rem;
+    background-color: rgb(216, 230, 235);
+    color:  rgb(92, 1, 92);
+    border-radius: 50px;
+    z-index: 4;
+    border: 10px solid rgb(92, 1, 92);
+    animation: heartbeatGrowTwo 5s infinite;
+}
+
+.yes-title {
+    position: relative;
+    left: 9rem;
+    font-family: "Emilys Candy", serif;
+}
+
+.yes-subtitle {
+    position: relative;
+    left: 30%;
+    font-family: "Italianno", serif;
+    font-size: 2.5rem;
+}
+
+.rick-position {
+    position: absolute;
+    top: 6.3rem;   /* Move down from the top */
+    right: 4rem; /* Move right from the left edge */
+  }
+
+  .hagrid-position {
+    position: absolute;
+    top: 7rem;
+    left: 0rem;
+  }
+
+
+  .cheers-position {
+    position: absolute;
+    top: 10rem;
+    left: 29.5rem;
+  }
+
+  /* Make the GIFs smaller */
+  .cheers-position img {
+    width: 125px;  /* Control how wide you want the GIFs */
+    height: auto;  /* Preserve aspect ratio */
+  }
+
+  /* Make the GIFs smaller */
+  .rick-position img {
+    width: 200px;  /* Control how wide you want the GIFs */
+    height: auto;  /* Preserve aspect ratio */
+  }
+
+  .hagrid-position img {
+    width: 300px;  /* Control how wide you want the GIFs */
+    height: auto;
+  }
+.yes-followup {
+    position: absolute;
+    top: 20rem;
+    left: 24rem;
+    text-align: center;
+    max-width: 20rem;
+}
+
+.yes-cta-button {
+    position: absolute;
+    top: 25rem;
+    left: 30rem;
+    background-color: #BEA6C5;
+    color:  rgb(92, 1, 92);
+}
+
+.yes-cta-button:focus {
+    outline: none;
+}
+
+@keyframes heartbeatGrowTwo {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    14% {
+      transform: scale(1.01);
+    }
+    28% {
+      transform: scale(1); /* First beat up */
+    }
+    42% {
+      transform: scale(1.01);
+    }
+    56% {
+      transform: scale(1);  /* Second beat up */
+    }
+    84% {
+      transform: scale(1.01);
+    }
+  }
