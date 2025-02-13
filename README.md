@@ -27,9 +27,11 @@ Below are three short GIFs showcasing the main flows of the app:
    ![Demo 1: Clicking envelope, choosing No multiple times, incomplete form, then switching to Yes](src/assets/go-to-no-form.gif)
 
 2. **Envelope Click → A Few No’s → Then Choose Yes**
+
    ![Demo 2: Clicking envelope, choosing No a couple of times, then selecting Yes](src/assets/say-yes.gif)
 
 3. **Already on the Form Screen → Missing Last Name → Validation Error → Completion → Final No Screen**
+
    ![Demo 3: Completing the form after a validation error, then proceeding to the final No screen](src/assets/submit-no-form.gif)
 
 These demos give a quick glimpse of how the choices lead to different screens and outcomes.
